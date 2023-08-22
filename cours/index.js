@@ -125,8 +125,27 @@ console.log(newArray2);
 console.log(array3.join(" "));
 
 // IMPORTANT (très utile) //
+
 let arrayNumber = [4, 74, 28, 12, 1];
 // Si on veut additionner tout les element d'un tableaux
 console.log(arrayNumber.reduce((x, y) => x + y));
 
 // FILTER, SORT, MAP
+console.log(arrayNumber.filter((number) => number > 10)); // Permet de filtrer les element du tableau donc ici affiche les elements superieur à 10
+
+console.log(arrayNumber.sort((a, b) => a - b)); // Organise les elements dans l'ordre croissant
+
+console.log(arrayNumber.sort((a, b) => b - a)); // Organise les elements dans l'ordre decroissant
+
+arrayNumber.map((number) => console.log(number)); // Peut etre utliser pour lister tout les elements du tableau
+
+// Methodes Objects
+// Pour ranger parfaitement nos utilisateur on peut faire
+
+document.body.innerHTML = data.sort((a,b) => b.age - a.age).map((user) => `
+    <div class = "user-card">
+        <h2>${user.pseudo}</h2>
+        <p>${user.age} ans</p>
+        <p>Statut : ${user.admin ? "Administrateur" : "Membre"}</p>
+    </div>
+`).join("");
