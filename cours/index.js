@@ -124,3 +124,9 @@ console.log(newArray2);
 
 console.log(array3.join(" "));
 
+// IMPORTANT (très utile) //
+let arrayNumber = [4, 74, 28, 12, 1];
+// Si on veut additionner tout les element d'un tableaux
+console.log(arrayNumber.reduce((x, y) => x + y));
+
+// FILTER, SORT, MAP
