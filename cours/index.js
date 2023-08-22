@@ -108,3 +108,19 @@ console.log(parseFloat(numberString)); // garde le nombre entier dans une chaine
 console.log(Math.round(4.5)); // arrondit au nombre le plus proche donc ici il affiche 5
 console.log(Math.floor(4.9)); // arrondit au nombre inferieur quoi qu'il arrive donc ici il affiche 4
 console.log(Math.ceil(4.1)); // arrondit au nombre superieur quoi qu'il arrive donc ici il affiche 5
+console.log(Math.pow(2, 7)); // pour faire la puissance donc ici 2 puissance 7
+console.log(Math.sqrt(16)); // pour faire la racine carrée donc ici 4
+console.log(Math.floor(Math.random() * 50)); // pour avoir un nombre aleatoire en entier ici en 0 et 50
+
+// Methodes array
+let array3 = ["Java", "PHP", "CSS"];
+let array4 = ["HTML", "Ruby"];
+// concat permet de fusionner les tableaux
+let newArray = array3.concat(array4);
+console.log(newArray);
+// Les trois-points permet egalement de fusionner les tableaux
+let newArray2 = [...array3, ...array4]
+console.log(newArray2);
+
+console.log(array3.join(" "));
+
