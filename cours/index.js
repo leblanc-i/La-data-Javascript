@@ -91,3 +91,20 @@ while (d < 5);
             default: document.body.style.color = "black";
     }
  });
+
+//  Methodes String
+let string2 = "Javascript est unn langage orienté objet";
+console.log(eval(parseInt("1") + 2)); // affichera 3
+
+// Methodes Numbers
+let number2 = 42.1234;
+let numberString = "42.12 est un chiffre";
+
+console.log(number2.toFixed(2)); // garde 2 chiffre apres la virgule.
+console.log(parseInt(numberString)); // garde le premier nombre dans une chaine de caractere donc 42 ici
+console.log(parseFloat(numberString)); // garde le nombre entier dans une chaine de caractere donc 42.12 ici
+
+// Math
+console.log(Math.round(4.5)); // arrondit au nombre le plus proche donc ici il affiche 5
+console.log(Math.floor(4.9)); // arrondit au nombre inferieur quoi qu'il arrive donc ici il affiche 4
+console.log(Math.ceil(4.1)); // arrondit au nombre superieur quoi qu'il arrive donc ici il affiche 5
