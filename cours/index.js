@@ -1,3 +1,6 @@
+const h3js = document.getElementById("javascript");
+const h3 = document.querySelectorAll("h3");
+
 let array = ["Bordeaux", "Toulouse", "Nantes"];
 // console.log(array[1][2]);
 
@@ -149,3 +152,93 @@ document.body.innerHTML = data.sort((a,b) => b.age - a.age).map((user) => `
         <p>Statut : ${user.admin ? "Administrateur" : "Membre"}</p>
     </div>
 `).join("");
+
+// Les Dates //
+// Date classique
+let date = new Date();
+console.log(date); // affiche l'heure actuel sur la machine
+
+// Timestamp
+let timestamp = Date.parse(date);
+console.log(timestamp); // affiche le nombre de seconde ecoulé depuis 1970 à aujourd'hui
+
+// IsoString
+let iso = date.toISOString(); // affiche l'heure au complet
+
+// Function pour formater l'heure afficher par l'isostring
+function dateParser(chaine) {
+    let newDate = new Date(chaine).toLocaleDateString("fr-FR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+    });
+    return newDate;
+}
+
+console.log(dateParser(date));
+
+// Destructuring (création de variable qui nous permet d'acceder facilement aux tableaux) //
+let moreData = {
+    destVar: ["Element 1", "Element 2"],
+};
+
+const { destVar } = moreData; // cet ecriture nous evite à chaque fois d'ecrire moreData.destvar pour accèder au tableau
+console.log(destVar); // on accède au tableau juste avec le nom destVar
+
+// Autres façon de destructuré
+
+let array5 = [70, 80, 90];
+let [x, y, z] = array5; // x y z prend respectivement les valeurs contenant dans l'array5
+console.log(x, y, z);
+
+// Function de destructuration
+const dateDestructuring = (chaine) => {
+    let newDate = chaine.split("T")[0]; // On prend la chaine et on casse partout ou il y'a T 
+    let [y, m, d] = newDate.split("-"); // On attribue dans des variables et on casse partout ou il y'a un tiret(-)
+    return [d, m, y].join("/"); // On formate la date et on join avec une barre(/)
+}
+console.log(dateDestructuring(iso));
+
+// les Datasets //
+// Pour acceder au langue
+console.log(h3js.dataset.lang);
+
+// Acceder à toutes les langues
+h3.forEach((language) => console.log(language.dataset.lang));
+
+// Les Regex
+let mail = "from_scratch23@gmail.com";
+// Pour tester on lui demande de trouver "from"
+console.log(mail.search(/from/)); // elle renvoi 0, quand elle l'aura trouver et -1 quand elle ne l'a pas trouver.
+
+// Pour chercher un element et la remplace par un autre
+ console.log(mail.replace(/from/, "de"));
+
+// L'importance du "i" au niveau de la comparaison
+console.log(mail.match(/SCratch/i)); // ça renvoi true parce-que le i permet d'ignoré la difference entre majuscule et miniscule
+
+// On peut chercher un caractere entre plusieurs
+console.log(mail.match(/[zug]/)); // et la il va trouver le "g"
+
+// Pour checker si il y'a un chiffre
+console.log(mail.match(/\d/)); // le \d signifi tout les chiffres
+
+// Et pour toutes les lettres
+// On test si il y'a une lettre qui est tapez en faisant
+console.log(mail.match(/[a-z]/));
+
+// Pour controler un mail
+// Regex pour email
+console.log(mail.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i));
+
+// Pour les separateur du milieu
+const inputString = "123456789";
+const regex = /.{1,3}/g;
+const result = inputString.match(regex).join(" ");
+console.log(result);
+
+// Autres methodes
+let separator = 265264849;
+console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
